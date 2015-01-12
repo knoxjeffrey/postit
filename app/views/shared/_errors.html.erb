@@ -1,0 +1,12 @@
+<% if controller_object.errors.any? %>
+  <div class="alert alert-error">
+  	<h5>
+  		<%= pluralize(controller_object.errors.count, 'error') %> in this form:
+  	</h5>
+  	<ul>
+  		<% controller_object.errors.full_messages.each do |msg| %>
+  			<li><%= msg %></li>
+  		<% end %>
+  	</ul>
+  </div>
+<% end %>

@@ -21,3 +21,13 @@
 
 en:
   hello: "Hello world"
+
+  activerecord:
+    attributes:
+      category:
+        name: "Category Name"
+  
+  activerecord:
+    attributes:
+      comment:
+        body: "Comment"
