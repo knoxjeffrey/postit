@@ -35,8 +35,8 @@
   	<div class="span8 well">
       "<%= comment.body %>"
       <p>
-  			<span class='quiet'>posted by </span><%= link_to comment.creator.username, '' %>
-  			<small>at <%= comment.created_at %></small>
+  			<span class='quiet'>by </span><%= link_to comment.creator.username, '' %>
+  			<small>at <%= display_friendly_date(comment.created_at) %></small>
       </p>
     </div>
   </div>

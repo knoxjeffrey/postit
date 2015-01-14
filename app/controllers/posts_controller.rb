@@ -1,14 +1,9 @@
-require 'pry'
 class PostsController < ApplicationController
   
   before_action :set_post_params, only: [:show, :edit, :update]
   
   def index
     @posts = Post.all
-  end
-  
-  def show
-    @comment = Comment.new
   end
   
   def new
@@ -27,10 +22,13 @@ class PostsController < ApplicationController
     end
   end
   
+  def show
+    @comment = Comment.new
+  end
+  
   def edit; end
   
   def update
-    binding.pry
     if @post.update(post_params)
       flash[:notice] = "You successfully edited your post!"
       redirect_to post_path(@post)

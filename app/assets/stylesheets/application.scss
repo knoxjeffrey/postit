@@ -12,9 +12,9 @@
  *= require_tree .
  */
 
- @import "bootstrap";
+@import "bootstrap";
 
- .container {
+.container {
   margin-left: 135px
 }
 
@@ -36,6 +36,10 @@ div.nav_item {
     color: #fff;
     text-decoration: none;
   }
+}
+
+.badge {
+  margin-right: 10px;
 }
 
 div.comment_votes {
