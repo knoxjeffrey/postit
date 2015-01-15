@@ -26,8 +26,5 @@ en:
     attributes:
       category:
         name: "Category Name"
-  
-  activerecord:
-    attributes:
       comment:
         body: "Comment"
