@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
   
+  before_action :require_user, except: [:show] #shut down routes if a user isn't logged in
+  
   def new
     @category = Category.new
   end

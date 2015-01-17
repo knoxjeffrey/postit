@@ -4,22 +4,56 @@
   </li>
 </ul>
 <div class='btn-group nav_item'>
-	<%= link_to '#', class: "btn btn-small dropdown-toggle", "data-toggle" => 'dropdown' do  %>
+	<%= link_to '', class: "btn btn-small dropdown-toggle", "data-toggle" => 'dropdown' do  %>
     Categories <span class='caret'>
   <% end %>
   <ul class="dropdown-menu">
     <% Category.all.each do |category| %>
       <li><%= link_to category.name, category_path(category) %></li>
     <% end %>
-    <li class='divider'></li>
-    <li>
-      <%= link_to(new_category_path) do %>
-        <i class="icon-plus"></i>
-        New Category
-      <% end %>
-    </li>
+    <% if logged_in? %>
+      <li class='divider'></li>
+      <li>
+        <%= link_to(new_category_path) do %>
+          <i class="icon-plus"></i>
+          New Category
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
 </div>
 
-<div class='nav_item'>
-	<%= link_to 'New Post', new_post_path, class: "btn btn-success btn-small" %>
-</div>
+<% if logged_in? %>
+  <div class='nav_item'>
+  	<%= link_to 'New Post', new_post_path, class: "btn btn-success btn-small" %>
+  </div>
+  <div class='btn-group nav_item'>
+  	<%= link_to '', class: "btn btn-small dropdown-toggle", "data-toggle" => 'dropdown' do  %>
+      <%= current_user.username %> <span class='caret'>
+    <% end %>
+    <ul class="dropdown-menu">
+      <li>
+        <%= link_to edit_user_path(current_user) do %>
+          <i class='icon-pencil'></i> edit profile
+        <% end %>
+      </li>
+      <li>
+        <%= link_to user_path(current_user) do %>
+          <i class='icon-user'></i> view profile
+        <% end %>
+      </li>
+      <li>
+        <%= link_to logout_path do %>
+          <i class='icon-off'></i> log out
+        <% end %>
+      </li>
+    </ul>
+  </div>
+<% else %>
+  <div class='nav_item'>
+  	<%= link_to 'Register', register_path, class: "btn btn-success btn-small" %>
+  </div>
+  <div class='nav_item'>
+  	<%= link_to 'Log In', login_path, class: "btn btn-small" %>
+  </div>
+<% end %>

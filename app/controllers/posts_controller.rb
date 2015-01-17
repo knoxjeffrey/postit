@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   
   before_action :set_post_params, only: [:show, :edit, :update]
+  before_action :require_user, except: [:index, :show] #shut down routes if a user isn't logged in
   
   def index
     @posts = Post.all
@@ -12,7 +13,7 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new(post_params)
-    @post.creator = User.find(1)
+    @post.creator = current_user
     
     if @post.save
       flash[:notice] = "You successfully created your post!"

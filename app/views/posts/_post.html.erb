@@ -4,7 +4,7 @@
 		<h4><%= link_to post.title, url_with_protocol(post.url) %></h4>
 		<p><%= post.description %></p>
 		<p>
-			<span class='quiet'>posted by </span><%= post.creator.username %>
+			<span class='quiet'>posted by </span><%= link_to post.creator.username, user_path(post.creator) %>
 			<small>on <%= display_friendly_date(post.created_at) %></small>
 		</p>
 		<span>

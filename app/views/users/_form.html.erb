@@ -1,0 +1,20 @@
+<div class='row'>
+	<div class="span8 well">
+		<%= form_for @user do |f| %>
+
+			<%= render 'shared/errors', controller_object: @user %>
+			
+			<div class="control-group">
+				<%= f.label :username %>
+				<%= f.text_field :username %>
+			</div>
+			
+			<div class="control-group">
+				<%= f.label :password %>
+				<%= f.password_field :password %>
+			</div>
+			<br/>
+			<%= f.submit @user.new_record? ? "Register" : "Update Profile", class: "btn btn-primary" %>
+		<% end %>
+	</div>
+</div>
