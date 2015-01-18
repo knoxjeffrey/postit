@@ -7,7 +7,10 @@ PostitTemplate::Application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   
   resources :posts, except: [:destroy] do
-    resources :comments, only: [:create]
+    post :vote, on: :member #will recognise /posts/id/vote with POST and route to vote method in PostsController
+    resources :comments, only: [:create] do
+      post :vote, on: :member #will recognise /posts/id/comments/id/vote vote with POST and route to vote method in CommentsController
+    end
   end
     
   resources :categories, only: [:new, :create, :show]

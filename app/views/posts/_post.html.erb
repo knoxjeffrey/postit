@@ -1,4 +1,19 @@
 <div class='row'>
+  <div class="span0 well text-center">
+    <% if logged_in? %>
+      <%= link_to vote_post_path(post, vote: true), method: 'post' do %>
+        <i class='icon-thumbs-up'></i>
+      <% end %>
+    <br/>
+    <% end %>
+    <%= pluralize(post.total_votes, 'vote') %>
+    <br/>
+    <% if logged_in? %>
+      <%= link_to vote_post_path(post, vote: false), method: 'post' do %>
+        <i class='icon-thumbs-down'></i>
+      <% end %>
+    <% end %>
+  </div>
 	<div class="span8 well">
 		<%= render post.categories %>
 		<h4><%= link_to post.title, url_with_protocol(post.url) %></h4>

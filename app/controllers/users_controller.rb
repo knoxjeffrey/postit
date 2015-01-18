@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = "#{current_user.username}, you have successfully registered!"
+      flash[:notice] = "You have successfully registered!  Welcome to PostIt #{current_user.username}."
       redirect_to root_path
     else
       render :new
