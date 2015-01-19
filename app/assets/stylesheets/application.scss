@@ -11,7 +11,8 @@
  *= require_self
  *= require_tree .
  */
-
+@import "bootstrap-sprockets";
+@import "bootstrap/variables";
 @import "bootstrap";
 
 .container {
