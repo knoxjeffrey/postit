@@ -1,10 +1,10 @@
 <% show_post ||= false %>
 
 <div class='row'>
-  <div class="span0 well text-center">
+  <div class="col-sm-2 well text-center">
     <% if logged_in? %>
       <%= link_to vote_post_comment_path(comment.post,comment, vote: true), method: 'post' do %>
-        <i class='icon-thumbs-up'></i>
+        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
       <% end %>
     <br/>
     <% end %>
@@ -12,11 +12,11 @@
     <br/>
     <% if logged_in? %>
       <%= link_to vote_post_comment_path(comment.post,comment, vote: false), method: 'post' do %>
-        <i class='icon-thumbs-down'></i>
+        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
       <% end %>
     <% end%>
   </div>
-	<div class="span8 well">
+	<div class="col-sm-8 well">
     "<%= comment.body %>"
     <% if show_post %>
       on <%= link_to comment.post.title, post_path(comment.post) %>

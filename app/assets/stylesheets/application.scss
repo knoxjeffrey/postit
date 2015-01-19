@@ -12,24 +12,68 @@
  *= require_tree .
  */
 @import "bootstrap-sprockets";
-@import "bootstrap/variables";
 @import "bootstrap";
 
-.container {
-  margin-left: 135px
+/********** NAV BAR **********/
+.navbar-default {
+  background-color: rgb(27,25,40);
 }
 
-.navbar .nav > li > a.brand {
-  padding-left: 0px;
+.navbar-default .navbar-brand {
+  color: #ffffff;
+  font-size: 26px;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: #ffffff;
+  font-size: 26px;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: #ffffff;
+}
+
+.navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+background-color: rgb(179,12,23);
+color: #ffffff;
+}
+
+
+
+
+body {
+  background-color: rgb(33,40,63);
+}
+
+.jumbotron {
+  background-color: rgb(33,40,63);
+  padding: 0px;
+}
+
+.jumbotron .lead  {
+  font-size: 36px;
+  color: #ffffff;
+}
+
+
+.well .glyphicon-plus {
+  font-size: 48px;
+  color: rgb(179,12,23);
 }
 
 .quiet {
   color: #ababab;
-}
-
-div.nav_item {
-  margin-left: 25px;
-  float: left;
 }
 
 .label, .badge {

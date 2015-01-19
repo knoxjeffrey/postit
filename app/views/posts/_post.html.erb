@@ -1,8 +1,8 @@
 <div class='row'>
-  <div class="span0 well text-center">
+  <div class="col-xs-2 well text-center">
     <% if logged_in? %>
       <%= link_to vote_post_path(post, vote: true), method: 'post' do %>
-        <i class='icon-thumbs-up'></i>
+        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
       <% end %>
     <br/>
     <% end %>
@@ -10,11 +10,11 @@
     <br/>
     <% if logged_in? %>
       <%= link_to vote_post_path(post, vote: false), method: 'post' do %>
-        <i class='icon-thumbs-down'></i>
+        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
       <% end %>
     <% end %>
   </div>
-	<div class="span8 well">
+	<div class="col-xs-9 col-xs-offset-1 well">
 		<%= render post.categories %>
 		<h4><%= link_to post.title, url_with_protocol(post.url) %></h4>
 		<p><%= post.description %></p>

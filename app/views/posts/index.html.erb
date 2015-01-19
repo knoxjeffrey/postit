@@ -1,5 +1,13 @@
 <%= render 'shared/content_title', title: "All Posts"%>
 
+<% if logged_in? %>
+  <div class="col-xs-12 well text-center">
+    <%= link_to new_post_path do %>
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    <% end %>
+  </div>
+<% end %>
+
 <% @posts.each do |post| %>
 	<%= render 'post', post: post %>
 <% end %>
