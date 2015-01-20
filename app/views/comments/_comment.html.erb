@@ -7,6 +7,11 @@
         <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
       <% end %>
     <br/>
+    <% else %>
+      <%= link_to '', "tabindex" => "0", "data-toggle" => "popover", "data-trigger" => "hover", "data-content" => "Must be logged in!" do %>
+        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+      <% end %>
+    <br/>
     <% end %>
     <%= comment.total_votes %>
     <br/>
@@ -14,7 +19,13 @@
       <%= link_to vote_post_comment_path(comment.post,comment, vote: false), method: 'post' do %>
         <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
       <% end %>
-    <% end%>
+    <br/>
+    <% else %>
+      <%= link_to '', "tabindex" => "0", "data-toggle" => "popover", "data-trigger" => "hover", "data-content" => "Must be logged in!" do %>
+        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+      <% end %>
+    <br/>
+    <% end %>
   </div>
 	<div class="col-xs-8 col-xs-offset-1 well">
     "<%= comment.body %>"

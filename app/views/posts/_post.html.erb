@@ -5,11 +5,20 @@
         <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
       <% end %>
     <br/>
+    <% else %>
+      <%= link_to '', "tabindex" => "0", "data-toggle" => "popover", "data-trigger" => "hover", "data-content" => "Must be logged in!" do %>
+        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+      <% end %>
+    <br/>
     <% end %>
     <%= post.total_votes %>
     <br/>
     <% if logged_in? %>
       <%= link_to vote_post_path(post, vote: false), method: 'post' do %>
+        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+      <% end %>
+    <% else %>
+      <%= link_to '', "tabindex" => "0", "data-toggle" => "popover", "data-trigger" => "hover", "data-content" => "Must be logged in!" do %>
         <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
       <% end %>
     <% end %>

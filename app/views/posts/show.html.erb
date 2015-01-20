@@ -1,5 +1,5 @@
 <div class='row'>
-  <%if logged_in? %>
+  <%if logged_in? && current_user == @post.creator %>
     <p class='pull-right'>
     	<%= link_to 'edit this post', edit_post_path(@post), class: 'btn btn-danger btn-small' %>
     </p>

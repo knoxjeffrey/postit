@@ -151,7 +151,7 @@ p {
   color: #ababab;
 }
 
-.label, .badge {
+.label, .badge{
   a, a:hover, a:focus {
     color: #fff;
     text-decoration: none;
@@ -174,7 +174,7 @@ p {
 }
 
 .badge a:hover {
-  color: rgb(33,40,63);
+  color: rgb(179,12,23);
 }
 
 div.comment_votes {
@@ -196,4 +196,25 @@ div.comment_votes {
   background-color: rgba(33,40,63,0);
   border-color: rgba(33,40,63,0);
   color: rgb(179,12,23);
+}
+
+.message {
+  background-color: rgb(33,40,63);
+}
+
+.alert-danger, #flash-danger {
+  background-color: rgba(179,12,23,.8);
+  border-color: rgba(179,12,23,0);
+  color: #ffffff;
+}
+
+.alert-success {
+  background-color: rgba(77,174,74,.8);
+  border-color: rgba(77,174,74,0);
+  color: #ffffff;
+}
+
+.close, .close:hover {
+  color: #ffffff;
+  opacity: 1;
 }

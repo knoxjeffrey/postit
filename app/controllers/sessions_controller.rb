@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "Welcome #{current_user.username}, you're logged in!"
       redirect_to root_path
     else
-      flash[:error] = "There is a problem with your username or password"
+      flash[:danger] = "There is a problem with your username or password"
       redirect_to login_path
     end
   end

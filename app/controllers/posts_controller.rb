@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   
   before_action :set_post_params, only: [:show, :edit, :update, :vote]
   before_action :require_user, except: [:index, :show] #shut down routes if a user isn't logged in
+  before_action :must_be_same_user, only: [:edit]
   
   def index
     @posts = Post.all.sort_by {|x| x.total_votes}.reverse
@@ -44,7 +45,7 @@ class PostsController < ApplicationController
     if vote.valid?
       flash[:notice] = "Your vote was counted"
     else
-      flash[:error] = "You can only vote once"
+      flash[:danger] = "You can only vote once"
     end
     
     redirect_to :back
@@ -58,6 +59,13 @@ class PostsController < ApplicationController
   
   def set_post_params
      @post = Post.find(params[:id])
+  end
+  
+  def must_be_same_user
+    if current_user != @post.creator
+      flash[:danger] = "You cannot edit another users post."
+      redirect_to root_path
+    end
   end
   
 end
