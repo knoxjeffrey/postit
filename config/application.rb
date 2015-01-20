@@ -22,5 +22,6 @@ module PostitTemplate
 
     # Tealeaf note: Bootstrap sass gem addition
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end

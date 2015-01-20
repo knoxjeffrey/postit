@@ -1,39 +1,45 @@
-<%if logged_in? %>
-  <p class='pull-right'>
-  	<%= link_to 'edit this post', edit_post_path(@post), class: 'btn btn-success btn-small' %>
-  </p>
-<% end %>
+<div class='row'>
+  <%if logged_in? %>
+    <p class='pull-right'>
+    	<%= link_to 'edit this post', edit_post_path(@post), class: 'btn btn-danger btn-small' %>
+    </p>
+  <% end %>
 
-<p>
-	<%= render @post.categories %>
-</p>
+  <p>
+  	<%= render @post.categories %>
+  </p>
+</div>
 
 <%= render 'shared/content_title', title: @post.title %>
 
-<p>
-	<%= @post.description %>
-</p>
-<hr/>
+<div class='row'>
+  <div class="col-xs-12 well">
+    <p><%= @post.description %></p>
+  </div>
+</div>
 
 <% if logged_in?%>
   <div class='row'>
-  	<div class='span8'>
+  	<div class='col-sm-6 well'>
       <%= form_for [@post, @comment] do |f| %>
         <%= render 'shared/errors', controller_object: @comment %>
  
-      	<div class="control-group">
+      	<div class="form-group">
       		<%= f.label :body, "Leave A Comment" %>
-      		<%= f.text_area :body, rows: 5, class: 'span6' %>
+      		<%= f.text_area :body, rows: 5, class: "form-control" %>
       	</div>
         </br>
-        <%= f.submit "Create Comment", class: "btn btn-primary" %>
+        <%= f.submit "Create Comment", class: "btn btn-danger" %>
       <% end %>
     </div>
   </div>
 <% end%>
 
 <% if !@post.reload.comments.empty? %>
-  <h5>Comments:</h5>
+  <div class='row'>
+    <h5>Comments:</h5>
+    <br/>
+  </div>
 <% end %>
 
 <% @post.reload.comments.each do |comment| %>

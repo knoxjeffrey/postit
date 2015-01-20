@@ -14,6 +14,26 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@font-face {
+  font-family: "Oswald Light";
+  src: font-url("Oswald-Light.otf");
+}
+
+@font-face {
+  font-family: "Oswald Bold";
+  src: font-url("Oswald-Bold.otf");
+}
+
+@font-face {
+  font-family: "Oswald Regular";
+  src: font-url("Oswald-Regular.otf");
+}
+
+@font-face {
+  font-family: "Oswald Stencil";
+  src: font-url("Oswald-Stencil.otf");
+}
+
 /********** NAV BAR **********/
 .navbar-default {
   background-color: rgb(27,25,40);
@@ -21,6 +41,7 @@
 
 .navbar-default .navbar-brand {
   color: #ffffff;
+  font-family: "Oswald Stencil";
   font-size: 26px;
 }
 
@@ -30,11 +51,16 @@
 }
 
 .navbar-default .navbar-nav > li > a {
+  font-family: "Oswald Regular";
   color: #ffffff;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
   color: #ffffff;
+}
+
+.dropdown-menu > li > a {
+  font-family: "Oswald Regular";
 }
 
 .navbar {
@@ -45,15 +71,53 @@
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-background-color: rgb(179,12,23);
-color: #ffffff;
+  background-color: rgb(179,12,23);
+  color: #ffffff;
 }
 
+.dropdown-menu {
+  background-color: rgb(27,25,40);
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+  color: #ffffff;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+  color: rgb(179,12,23);
+}
+
+.navbar-default .navbar-nav > .active > a {
+  background-color: rgb(179,12,23);
+  color: #ffffff
+}
+
+.navbar-default .navbar-nav > .active > a:hover {
+  background-color: rgb(179,12,23);
+  color: #ffffff
+}
 
 
 
 body {
   background-color: rgb(33,40,63);
+  font-family: "Oswald Light";
+}
+
+h3, h4, h5 {
+  font-family: "Oswald Bold";
+}
+
+h3 {
+  color: #ffffff;
+}
+
+h5 {
+  color: #ffffff;
+}
+
+p {
+  font-family: "Oswald Light";
 }
 
 .jumbotron {
@@ -62,13 +126,24 @@ body {
 }
 
 .jumbotron .lead  {
+  font-family: "Oswald Regular";
   font-size: 36px;
   color: #ffffff;
+  margin-bottom: 50px;
 }
 
+.jumbotron p {
+  font-size: 16px;
+}
+
+.well {
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 10px;
+}
 
 .well .glyphicon-plus {
-  font-size: 48px;
+  font-size: 40px;
   color: rgb(179,12,23);
 }
 
@@ -84,9 +159,41 @@ body {
 }
 
 .badge {
+  font-family: "Oswald Light";
+  border: 1px solid rgb(33,40,63);
+  background: #ffffff;
   margin-right: 10px;
+}
+
+.badge:hover {
+  border: 1px solid rgb(179,12,23);
+}
+
+.badge a {
+  color: rgb(33,40,63);
+}
+
+.badge a:hover {
+  color: rgb(33,40,63);
 }
 
 div.comment_votes {
   padding: 10px;
+}
+
+
+.nav-tabs>li>a {
+  color:#fff;
+}
+
+.nav-tabs > li.active > a, .nav-tabs>li.active > a:hover, .nav-tabs > li.active > a:focus {
+  background-color: rgb(179,12,23);
+  border-color: rgb(179,12,23);
+  color:#fff;
+}
+
+.nav-tabs>li>a:hover {
+  background-color: rgba(33,40,63,0);
+  border-color: rgba(33,40,63,0);
+  color: rgb(179,12,23);
 }

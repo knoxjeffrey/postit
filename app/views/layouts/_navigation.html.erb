@@ -54,10 +54,10 @@
       </li>
     <% else %>
       <li>
-        <%= link_to 'Register', register_path, class: "btn btn-success btn-small" %>
-      </li>
-      <li>
         <%= link_to 'Log In', login_path, class: "btn btn-small" %>
+      </li>
+      <li class='active'>
+        <%= link_to 'Register', register_path %>
       </li>
     <% end %>
   </ul>

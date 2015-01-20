@@ -1,14 +1,14 @@
 <% show_post ||= false %>
 
 <div class='row'>
-  <div class="col-sm-2 well text-center">
+  <div class="col-xs-1 well text-center">
     <% if logged_in? %>
       <%= link_to vote_post_comment_path(comment.post,comment, vote: true), method: 'post' do %>
         <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
       <% end %>
     <br/>
     <% end %>
-    <%= pluralize(comment.total_votes, 'vote') %>
+    <%= comment.total_votes %>
     <br/>
     <% if logged_in? %>
       <%= link_to vote_post_comment_path(comment.post,comment, vote: false), method: 'post' do %>
@@ -16,7 +16,7 @@
       <% end %>
     <% end%>
   </div>
-	<div class="col-sm-8 well">
+	<div class="col-xs-8 col-xs-offset-1 well">
     "<%= comment.body %>"
     <% if show_post %>
       on <%= link_to comment.post.title, post_path(comment.post) %>

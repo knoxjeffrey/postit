@@ -1,17 +1,17 @@
 <%= render 'shared/content_title', title: "Create New Category"%>
 
 <div class='row'>
-	<div class = 'span8 well'>
+	<div class = 'col-sm-8 well'>
 		<%= form_for @category do |f| %>
 		
 			<%= render 'shared/errors', controller_object: @category %>
 		
-			<div class="control-group">
+			<div class="form-group">
 				<%= f.label :name, "Category Name" %>
-				<%= f.text_field :name %>
+				<%= f.text_field :name, class: "form-control" %>
 			</div>
 			<br/>
-			<%= f.submit "Create Category", class: "btn btn-primary" %>
+			<%= f.submit "Create Category", class: "btn btn-danger" %>
 		<% end %>
 		
 	</div>
