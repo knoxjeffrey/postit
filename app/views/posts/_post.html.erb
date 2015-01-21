@@ -5,9 +5,7 @@
     <% end %>
   <br/>
   <% else %>
-    <%= link_to '', "tabindex" => "0", "data-toggle" => "popover", "data-trigger" => "hover", "data-content" => "Log in to vote!" do %>
-      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-    <% end %>
+    <%= render 'shared/no_click_thumb', thumb: "up"%>
   <br/>
   <% end %>
   <%= post.total_votes %>
@@ -17,9 +15,7 @@
       <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
     <% end %>
   <% else %>
-    <%= link_to '', "tabindex" => "0", "data-toggle" => "popover", "data-trigger" => "hover", "data-content" => "Log in to vote!" do %>
-      <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
-    <% end %>
+    <%= render 'shared/no_click_thumb', thumb: "down"%>
   <% end %>
 </div>
 <div class="col-xs-10 col-xs-offset-1 well">
