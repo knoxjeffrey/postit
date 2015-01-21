@@ -1,12 +1,10 @@
 <%= render 'shared/content_title', title: "All Posts"%>
 
 <% if logged_in? %>
-  <div class='row'>
-    <div class="col-xs-12 well text-center">
-      <%= link_to new_post_path, "tabindex" => "0", "data-toggle" => "popover", "data-trigger" => "hover", "data-content" => "Click to create a new post!" do %>
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-      <% end %>
-    </div>
+  <div class="col-xs-12 well text-center">
+    <%= link_to new_post_path, "tabindex" => "0", "data-toggle" => "popover", "data-trigger" => "hover", "data-content" => "Click to create a new post!" do %>
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    <% end %>
   </div>
 <% end %>
 

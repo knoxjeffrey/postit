@@ -1,38 +1,37 @@
-<div class='row'>
-  <div class="col-xs-1 well text-center">
-    <% if logged_in? %>
-      <%= link_to vote_post_path(post, vote: true), method: 'post' do %>
-        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-      <% end %>
-    <br/>
-    <% else %>
-      <%= link_to '', "tabindex" => "0", "data-toggle" => "popover", "data-trigger" => "hover", "data-content" => "Must be logged in!" do %>
-        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-      <% end %>
-    <br/>
+<div class="col-xs-1 well text-center">
+  <% if logged_in? %>
+    <%= link_to vote_post_path(post, vote: true), method: 'post' do %>
+      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
     <% end %>
-    <%= post.total_votes %>
-    <br/>
-    <% if logged_in? %>
-      <%= link_to vote_post_path(post, vote: false), method: 'post' do %>
-        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
-      <% end %>
-    <% else %>
-      <%= link_to '', "tabindex" => "0", "data-toggle" => "popover", "data-trigger" => "hover", "data-content" => "Must be logged in!" do %>
-        <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
-      <% end %>
+  <br/>
+  <% else %>
+    <%= link_to '', "tabindex" => "0", "data-toggle" => "popover", "data-trigger" => "hover", "data-content" => "Log in to vote!" do %>
+      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
     <% end %>
-  </div>
-	<div class="col-xs-10 col-xs-offset-1 well">
-		<%= render post.categories %>
-		<h4><%= link_to post.title, url_with_protocol(post.url) %></h4>
-		<p><%= post.description %></p>
-		<p>
-			<span class='quiet'>posted by </span><%= link_to post.creator.username, user_path(post.creator) %>
-			<small>on <%= display_friendly_date(post.created_at) %></small>
-		</p>
-		<span>
-			<%= link_to("#{post.comments.size} comments", post_path(post))%>
-		</span>
-	</div>
+  <br/>
+  <% end %>
+  <%= post.total_votes %>
+  <br/>
+  <% if logged_in? %>
+    <%= link_to vote_post_path(post, vote: false), method: 'post' do %>
+      <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+    <% end %>
+  <% else %>
+    <%= link_to '', "tabindex" => "0", "data-toggle" => "popover", "data-trigger" => "hover", "data-content" => "Log in to vote!" do %>
+      <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+    <% end %>
+  <% end %>
 </div>
+<div class="col-xs-10 col-xs-offset-1 well">
+	<%= render post.categories %>
+	<h4><%= link_to post.title, url_with_protocol(post.url) %></h4>
+	<p><%= post.description %></p>
+	<p>
+		<span class='quiet'>posted by </span><%= link_to post.creator.username, user_path(post.creator) %>
+		<small>on <%= display_friendly_date(post.created_at) %></small>
+	</p>
+	<span>
+		<%= link_to("#{post.comments.size} comments", post_path(post))%>
+	</span>
+</div>
+

@@ -118,22 +118,14 @@ h5 {
 
 p {
   font-family: "Oswald Light";
+  font-size: 16px;
 }
 
-.jumbotron {
-  background-color: rgb(33,40,63);
-  padding: 0px;
-}
-
-.jumbotron .lead  {
+.lead  {
   font-family: "Oswald Regular";
   font-size: 36px;
   color: #ffffff;
   margin-bottom: 50px;
-}
-
-.jumbotron p {
-  font-size: 16px;
 }
 
 .well {
@@ -217,4 +209,8 @@ div.comment_votes {
 .close, .close:hover {
   color: #ffffff;
   opacity: 1;
+}
+
+.row {
+  margin-left: 0px;
 }

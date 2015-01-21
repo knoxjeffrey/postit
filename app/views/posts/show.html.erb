@@ -1,26 +1,25 @@
-<div class='row'>
-  <%if logged_in? && current_user == @post.creator %>
-    <p class='pull-right'>
-    	<%= link_to 'edit this post', edit_post_path(@post), class: 'btn btn-danger btn-small' %>
-    </p>
-  <% end %>
-
-  <p>
-  	<%= render @post.categories %>
+<%if logged_in? && current_user == @post.creator %>
+  <p class='pull-right'>
+  	<%= link_to 'edit this post', edit_post_path(@post), class: 'btn btn-danger btn-small' %>
   </p>
-</div>
+<% end %>
+
+<p>
+	<%= render @post.categories %>
+</p>
 
 <%= render 'shared/content_title', title: @post.title %>
 
-<div class='row'>
-  <div class="col-xs-12 well">
-    <p><%= @post.description %></p>
-  </div>
+
+
+<div class="col-xs-12 well">
+  <p><%= @post.description %></p>
 </div>
+
 
 <% if logged_in?%>
   <div class='row'>
-  	<div class='col-sm-6 well'>
+  	<div class='col-sm-8 well'>
       <%= form_for [@post, @comment] do |f| %>
         <%= render 'shared/errors', controller_object: @comment %>
  
@@ -36,10 +35,8 @@
 <% end%>
 
 <% if !@post.reload.comments.empty? %>
-  <div class='row'>
-    <h5>Comments:</h5>
-    <br/>
-  </div>
+  <h5>Comments:</h5>
+  <br/>
 <% end %>
 
 <% @post.reload.comments.each do |comment| %>

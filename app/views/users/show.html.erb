@@ -1,39 +1,37 @@
 <%= render 'shared/content_title', title: "Profile: #{@user.username}"%>
 
-<div class='row'>
-  <div class="well">
-    <dl class="dl-horizontal">
-  	  <dt>Username:</dt> 
-      <dd><%= @user.username %></dd>
-    </dl>
-  </div>
-  <br/>
-  <h3><%= @user.username %>'s Activity:</h3>
-  <br/>
+<div class="well">
+  <dl class="dl-horizontal">
+	  <dt>Username:</dt> 
+    <dd><%= @user.username %></dd>
+  </dl>
 </div>
+<br/>
+<h3><%= @user.username %>'s Activity:</h3>
+<br/>
+
 
 <div role="tabpanel">
-  <div class='row'>
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active"><a href="#posts" aria-controls="posts" role="tab" data-toggle="tab">Posts &#40;<%= @user.posts.count %>&#41;</a></li>
-      <li role="presentation"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">Comments &#40;<%= @user.comments.count %>&#41</a></li>
-    </ul>
+  
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#posts" aria-controls="posts" role="tab" data-toggle="tab">Posts &#40;<%= @user.posts.count %>&#41;</a></li>
+    <li role="presentation"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">Comments &#40;<%= @user.comments.count %>&#41</a></li>
+  </ul>
+</div>
+<!-- Tab panes -->
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="posts">
+    <br/>
+    <% @user.posts.each do |post| %>
+    	<%= render 'posts/post', post: post %>
+    <% end %>
   </div>
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="posts">
-      <br/>
-      <% @user.posts.each do |post| %>
-      	<%= render 'posts/post', post: post %>
-      <% end %>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="comments">
-      <br/>
-      <% @user.comments.each do |comment| %>
-        <%= render 'comments/comment', comment: comment, show_post: true %>
-      <% end %>
-    </div>
+  <div role="tabpanel" class="tab-pane" id="comments">
+    <br/>
+    <% @user.comments.each do |comment| %>
+      <%= render 'comments/comment', comment: comment, show_post: true %>
+    <% end %>
   </div>
 
 </div>
