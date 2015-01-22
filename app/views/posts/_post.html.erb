@@ -1,6 +1,6 @@
 <div class="col-xs-1 well text-center">
   <% if logged_in? %>
-    <%= link_to vote_post_path(post, vote: true), method: 'post' do %>
+    <%= link_to vote_post_path(post, vote: true), method: 'post', remote: true do %>
       <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
     <% end %>
   <br/>
@@ -8,10 +8,10 @@
     <%= render 'shared/no_click_thumb', thumb: "up"%>
   <br/>
   <% end %>
-  <%= post.total_votes %>
+  <span id="post_<%= post.slug %>_votes"><%= post.total_votes %></span>
   <br/>
   <% if logged_in? %>
-    <%= link_to vote_post_path(post, vote: false), method: 'post' do %>
+    <%= link_to vote_post_path(post, vote: false), method: 'post', remote: true do %>
       <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
     <% end %>
   <% else %>
