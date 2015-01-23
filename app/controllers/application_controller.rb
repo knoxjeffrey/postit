@@ -27,4 +27,14 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def require_admin
+    #using and means that the second argument is only ever executed if the first is true
+    access_denied unless logged_in? and current_user.admin?
+  end
+  
+  def access_denied
+    flash[:error] = "You are not allowed to do that"
+    redirect_to root_path
+  end
+  
 end

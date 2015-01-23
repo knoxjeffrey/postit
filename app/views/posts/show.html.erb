@@ -1,4 +1,4 @@
-<%if logged_in? && current_user == @post.creator %>
+<%if logged_in? && current_user == @post.creator || logged_in? && current_user.admin? %>
   <p class='pull-right'>
   	<%= link_to 'edit this post', edit_post_path(@post), class: 'btn btn-danger btn-small' %>
   </p>

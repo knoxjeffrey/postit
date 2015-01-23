@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   
   before_action :set_post_params, only: [:show, :edit, :update, :vote]
   before_action :require_user, except: [:index, :show] #shut down routes if a user isn't logged in
-  before_action :must_be_same_user, only: [:edit]
+  before_action :must_be_creator, only: [:edit, :update]
   
   def index
     @posts = Post.all.sort_by {|x| x.total_votes}.reverse
@@ -65,11 +65,8 @@ class PostsController < ApplicationController
     @post = Post.find_by(slug: params[:id])
   end
   
-  def must_be_same_user
-    if current_user != @post.creator
-      flash[:danger] = "You cannot edit another users post."
-      redirect_to root_path
-    end
+  def must_be_creator
+    access_denied unless logged_in? and (current_user == @post.creator || current_user.admin?)
   end
   
 end
