@@ -14,6 +14,7 @@ gem 'autoprefixer-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+gem 'voteable_knoxjeffrey', path: '/Users/knoxjeffrey/Rails/voteable-gem'
 
 group :doc do
   gem 'sdoc', require: false
