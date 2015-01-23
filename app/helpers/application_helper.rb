@@ -9,6 +9,10 @@ module ApplicationHelper
   #
   #example Jan 4th, 2015 20:52 UTC
   def display_friendly_date(date)
+    if logged_in? && !current_user.time_zone.blank?
+      date = date.in_time_zone(current_user.time_zone)
+    end
+    
     date.strftime("%b #{date.day.ordinalize}, %Y %H:%M %Z")
   end
   

@@ -12,6 +12,10 @@
 			<%= f.label :password %>
 			<%= f.password_field :password, class: "form-control"  %>
 		</div>
+    <div class="form-group">
+      <%= f.label :time_zone %>
+      <%= f.time_zone_select :time_zone, nil, {default: "Edinburgh"}, {class: "form-control"} %>
+    </div>
 		<br/>
 		<%= f.submit @user.new_record? ? "Register" : "Update Profile", class: "btn btn-danger" %>
 	<% end %>
