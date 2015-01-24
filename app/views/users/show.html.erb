@@ -5,7 +5,7 @@
 	  <dt>Username:</dt> 
     <dd><%= @user.username %></dd>
 	  <dt>Time Zone:</dt> 
-    <dd><%= !@user.time_zone.blank? ? @user.time_zone.blank? : "None Set" %></dd>
+    <dd><%= !@user.time_zone.blank? ? @user.time_zone : "None Set" %></dd>
   </dl>
 </div>
 <br/>
