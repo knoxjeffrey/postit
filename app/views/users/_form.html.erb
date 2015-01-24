@@ -12,6 +12,13 @@
 			<%= f.label :password %>
 			<%= f.password_field :password, class: "form-control"  %>
 		</div>
+		<div class="form-group">
+			<%= f.label :phone, "Phone Number <small>(numbers only)</small>".html_safe %>
+      <%= link_to '', id: 'two_factor_phone', "data-toggle" => "popover", "data-trigger" => "hover", "data-content" => "We use your phone number to enable 2 factor authentication for extra security. Leave this blank if you do not want this feature." do %>
+        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+      <% end %>
+			<%= f.text_field :phone, maxlength: 12, class: "form-control" %>
+		</div>
     <div class="form-group">
       <%= f.label :time_zone %>
       <%= f.time_zone_select :time_zone, nil, {default: "Edinburgh"}, {class: "form-control"} %>
