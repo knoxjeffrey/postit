@@ -6,8 +6,11 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:username])
     
     if user && user.authenticate(params[:password])
+      #extra logic required if application has 2 factor authorisation enabled
       if user.two_factor_auth?
-        session[:two_factor] = true
+        #session[:two_factor] is only set true if the user has successfully entered username and password
+        #but has not successfully entered the pin yet. Means that only registered users can reach the pin_path
+        session[:two_factor] = true  
         user.generate_pin!
         user.send_pin_to_twilio
         redirect_to pin_path
@@ -29,6 +32,7 @@ class SessionsController < ApplicationController
   def pin
     access_denied if session[:two_factor].nil?
     
+    #check if a post request is submitted
     if request.post?
       user = User.find_by(pin: params[:pin])
       if user

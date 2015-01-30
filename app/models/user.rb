@@ -11,18 +11,21 @@ class User < ActiveRecord::Base
   
   sluggable_column :username
   
+  #true if the user has a phone number
   def two_factor_auth?
     !self.phone.blank?
   end
   
+  #generate random 6 digit number
   def generate_pin!
-    self.update_column(:pin, rand(10 ** 6)) # random 6 digit number
+    self.update_column(:pin, rand(10 ** 6))
   end
   
   def remove_pin!
-    self.update_column(:pin, nil) # remove the pin
+    self.update_column(:pin, nil) # remove the pin from pin column
   end
   
+  #this code comes from twilio
   def send_pin_to_twilio
     # put your own credentials here 
     account_sid = 'ACccc96b6d4653d3158c5186d40d460269' 
